@@ -1,53 +1,48 @@
 
-def remove_elements(lista):
-    if len(lista) >=6:
-        del lista[5]
-        del lista[4]
-        del lista[0]
-    elif len(lista) >=5:
-        del lista[0]
-        del lista[4]
+def remove_elements(list_to_remove_elements):
+    if list_to_remove_elements == []:
+        return list_to_remove_elements
+    del list_to_remove_elements[0]
+
+    if len(list_to_remove_elements) > 3:
+        del list_to_remove_elements[3]
     else:
-        del lista[0]
-    print(lista)
+        return list_to_remove_elements
 
-remove_elements(['red','green','white','black','pink','yellow'])
-
-def add_elements(lista):
-    lista.insert (0,'pink')
-    lista.append('yellow')
-    print(lista)
-lista2= ['red','green','white','black']
-add_elements(lista2)
-
-def is_empty(lista):
-    if len(lista) == 0:
-        return "esta vacia"
+    if len(list_to_remove_elements) > 3:
+        del list_to_remove_elements[3]
+        return list_to_remove_elements
     else:
-        return "no esta vacia"
-    lista3=[ ]
-    print(is_empty(lista3))
+        return list_to_remove_elements
 
-    def check_list(lista1, lista2):
-        if len(lista1)<3 or len(lista2)<3:
-            return false
-        else:
-            return lista1[2] == lista2[2]
-        lista1= ['black','pink','yellow','red','green','white']
-        lista2 = ['red','green','yellow','white','black','pink']
-        result= check_list(lista1, lista2)
-        print(f"Expected output: {result}")
-        lista3= ['black','pink','green','white']
-        lista4= ['red','green','yellow','black','pink']
-        result2= check_list(lista3, lista4)
-        print(f"Expected output: {result2}")
+list_to_remove_elements = ['Red', 'Green', 'White', 'Black', 'Pink', 'Yellow']
+print(remove_elements(list_to_remove_elements))
+def add_elements(list_to_add_elements):
+    return ["Pink"] + list_to_add_elements + ["Yellow"]
+
+list_to_add_elements = ['Red', 'Green', 'White', 'Black']
+print(add_elements(list_to_add_elements))
+def is_empty(list_to_check):
+    if list_to_check == []:
+        return True
+    else:
+        return False
+list_to_check = ['Black', 'Pink', 'Yellow', 'Red', 'Green', 'White']
+print(is_empty(list_to_check))
+
+def check_lists(list_to_compare1, list_to_compare2):
+    if len(list_to_compare1) > 2 and len(list_to_compare2) > 2:
+        if (list_to_compare1[2] == list_to_compare2[2]):
+            return True
+    else:
+        return False
 
 
-def list_of_lists(listas):
-    resultado= [ ]
-    resultado.append(listas[0][ :2])
-    resultado.append(listas[1][1:4])
-    resultado.append(listas[2][-2: ])
-    return resultado
-sample_list= [[1,2,3],[4,5,6,7,8],[9,10,11,12]]
-print(list_of_lists(sample_list))
+def list_of_lists(list_of_lists_to_modify):
+    lista1 = list_of_lists_to_modify[0][0:2]
+    lista2 = list_of_lists_to_modify[1][1:4]
+    lista3 = list_of_lists_to_modify[2][-2:]
+
+    return [lista1, lista2, lista3]
+list_of_lists_to_modify = [[1, 2, 3], [4, 5, 6, 7, 8], [9, 10, 11, 12]]
+print(list_of_lists(list_of_lists_to_modify))
